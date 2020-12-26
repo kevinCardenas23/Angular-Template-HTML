@@ -1,6 +1,6 @@
 <header class="ae-container-fluid ae-container-fluid--full rk-header ">
-  <input type="checkbox" id="mobile-menu" class="rk-mobile-menu">
-  <label for="mobile-menu">
+    <input type="checkbox" id="mobile-menu" class="rk-mobile-menu">
+    <label for="mobile-menu">
     <svg>
       <use xlink:href="assets/img/symbols.svg#bar"></use>
     </svg>
@@ -11,35 +11,25 @@
       <use xlink:href="assets/img/symbols.svg#bar"></use>
     </svg>
   </label>
-  <div class="ae-container-fluid rk-topbar">
-    <h1 class="rk-logo"><a routerLink="home">{{_servicio.info.titulo}}</a></h1>
-    <nav class="rk-navigation">
-      <ul class="rk-menu">
-        <li routerLinkActive='active' class="rk-menu__item">
-          <a routerLink="home" class="rk-menu__link">Inicio</a>
-        </li>
-        <li routerLinkActive='active' class="rk-menu__item"><a routerLink="item" class="rk-menu__link">Servicios</a>
-          <nav class="rk-menu__sub">
-            <ul class="rk-container">
-              <li class="rk-menu__item"><a href="portfolio.html" class="rk-menu__link">uno</a></li>
-              <li class="rk-menu__item"><a href="portfolio-alt.html" class="rk-menu__link">dos</a></li>
-              <li class="rk-menu__item"><a href="portfolio-raw.html" class="rk-menu__link">tres</a></li>
+    <div class="ae-container-fluid rk-topbar">
+        <h1 class="rk-logo"><a routerLink="home">{{_servicio.info.titulo}}</a></h1>
+        <nav class="rk-navigation">
+            <ul class="rk-menu">
+                <li routerLinkActive='active' class="rk-menu__item">
+                    <a routerLink="home" class="rk-menu__link">Inicio</a>
+                </li>
+                <li routerLinkActive='active' class="rk-menu__item"><a routerLink="about" class="rk-menu__link">Acerca de</a>
+                </li>
             </ul>
-          </nav>
-        </li>
-        <li routerLinkActive='active' class="rk-menu__item"><a routerLink="about" class="rk-menu__link">Acerca de</a>
-        </li>
-      </ul>
-
-      <form class="rk-search">
-        <input type="text" placeholder="Search" id="urku-search" class="rk-search-field">
-        <label for="urku-search">
+            <form class="rk-search">
+                <input type="text" placeholder="Search" id="urku-search" class="rk-search-field">
+                <label for="urku-search">
           <svg>
             <use xlink:href="assets/img/symbols.svg#icon-search"></use>
           </svg>
         </label>
-      </form>
+            </form>
 
-    </nav>
-  </div>
+        </nav>
+    </div>
 </header>

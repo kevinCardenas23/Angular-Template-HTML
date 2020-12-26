@@ -9,14 +9,18 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class ItemComponent implements OnInit {
 
+  _producto: any
+  id: String = ""
+
   constructor(private route: ActivatedRoute, public productoService: ProductosService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((parametros) => {
-      this.productoService.getProducto( parametros['id'])
-      .subscribe((producto)=>{
-        console.log(producto);
-      });
+      this.productoService.getProducto(parametros['id'])
+        .subscribe((producto) => {
+          this.id = parametros['id']
+          this._producto = producto
+        });
     })
   }
 }
