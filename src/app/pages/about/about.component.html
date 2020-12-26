@@ -1,18 +1,10 @@
 <div class="ae-grid au-xs-ta-center au-mb-4">
-    <div class="animate__animated animate__fadeInDown ae-grid__item item-lg-4 ae-kappa au-mb-3"><img src="{{_servicio.equipo[1]['url']}}" alt="" class="au-mb-3">
-        <h5 class="ae-u-bolder au-mt-2">{{_servicio.equipo[0]['nombre']}}</h5>
-        <p class="ae-u-bolder au-mb-3">{{_servicio.equipo[0]['subitulo']}}</p>
-        <p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">{{_servicio.equipo[0]['frase']}}</p><a href="#0" class="ae-u-bolder au-underline">{{_servicio.equipo[0]['twitter']}}</a>
-    </div>
-    <div class="animate__animated animate__fadeInDown ae-grid__item item-lg-4 ae-kappa au-mb-3"><img src="{{_servicio.equipo[0]['url']}}" alt="" class="au-mb-3">
-        <h5 class="ae-u-bolder au-mt-2">{{_servicio.equipo[1]['nombre']}}</h5>
-        <p class="ae-u-bolder au-mb-3">{{_servicio.equipo[1]['subitulo']}}</p>
-        <p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">{{_servicio.equipo[1]['frase']}}</p><a href="#0" class="ae-u-bolder au-underline">{{_servicio.equipo[1]['twitter']}}</a>
-    </div>
-    <div class="animate__animated animate__fadeInDown ae-grid__item item-lg-4 ae-kappa au-mb-3"><img src="{{_servicio.equipo[2]['url']}}" alt="" class="au-mb-3">
-        <h5 class="ae-u-bolder au-mt-2">{{_servicio.equipo[2]['nombre']}}</h5>
-        <p class="ae-u-bolder au-mb-3">{{_servicio.equipo[2]['subitulo']}}</p>
-        <p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">{{_servicio.equipo[2]['frase']}}</p><a href="#0" class="ae-u-bolder au-underline">{{_servicio.equipo[2]['twitter']}}</a>
+    <div *ngFor="let persona of _servicio.equipo" class="animate__animated animate__fadeInDown ae-grid__item item-lg-4 ae-kappa au-mb-3">
+        <img [src]="persona.url" alt="" class="au-mb-3">
+        <h5 class="ae-u-bolder au-mt-2">{{persona.nombre}}</h5>
+        <p class="ae-u-bolder au-mb-3">{{persona.subitulo}}</p>
+        <p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">{{persona.frase}}</p>
+        <a target="_blank" href="https://twitter.com/{{persona.twitter}}" class="ae-u-bolder au-underline">{{persona.twitter}}</a>
     </div>
 </div>
 <div class="ae-grid au-pt-2">
