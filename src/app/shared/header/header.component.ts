@@ -9,16 +9,16 @@ import { InfoPaginaService } from 'src/app/services/info-pagina.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public _servicio:InfoPaginaService, private router: Router) { }
+  constructor(public _servicio: InfoPaginaService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  buscarProducto(termino:String){
-    if (termino.length <1){
+  buscarProducto(termino: String) {
+    if (termino.length < 1) {
       return;
     }
-    this.router.navigate(['/search',termino]);
+    this.router.navigate(['/search', termino]);
   }
 
 }
