@@ -15,13 +15,12 @@ export class ProductosService {
   }
 
   private cargarProductos() {
-    return new Promise<void>((resolve, reject) => {
-      this.http.get('https://angular-html-58a46-default-rtdb.firebaseio.com/productos_idx.json')
-        .subscribe((resp) => {
-          this.productos = resp;
-          this.cargando = false;
-          resolve();
-        });
+    return new Promise((resolve, reject) => {
+      this.http.get('https://angular-html-58a46-default-rtdb.firebaseio.com/productos_idx.json').subscribe((resp) => {
+        this.productos = resp;
+        this.cargando = false;
+        resolve();
+      });
     });
   }
 
@@ -30,29 +29,31 @@ export class ProductosService {
   }
 
   buscarProducto(termino: string) {
-    // if (this.productos.length === 0) {
-    //   //Cargar los productos
-    //   this.cargarProductos().then(() => {
-    //     //Despues de tener los productos
-    //     //Aplciar el filtro
-    //     this.filtrarProductos(termino)
-    //   })
 
-    // } else {
-    //   //Esperar a que carguen
-    //   this.filtrarProductos(termino)
-    // }
+    if (this.productos.length === 0) {
+      //Cargar los productos
+      this.cargarProductos().then(() => {
+        //Despues de tener los productos
+        //Aplicar el filtro
+        this.filtrarProductos(termino)
+      })
 
-    this.productosFiltrado = this.productos.filter((producto: any) => {
-      return true;
-    });
-
-    console.log(this.productosFiltrado);
-    
+    } else {
+      //aplicar el filtro
+      this.filtrarProductos(termino)
+    }
 
   }
-  private filtrarProductos(termino:string){
-      console.log(this.productosFiltrado);
-      
+
+  private filtrarProductos(termino: string) {
+    this.productosFiltrado = [];
+    termino = termino.toLocaleLowerCase();
+
+    this.productos.forEach((prod: any) => {
+      const tituloLower = prod.titulo.toLocaleLowerCase()
+      if (prod.categoria.indexOf(termino) >= 0 || tituloLower.indexOf(termino) >= 0) {
+        this.productosFiltrado.push(prod);
+      }
+    });
   }
 }
